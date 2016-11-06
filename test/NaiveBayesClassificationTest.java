@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 import static org.junit.Assert.assertEquals;
 
-public class NaiveBayesTest {
+public class NaiveBayesClassificationTest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before
@@ -57,3 +57,4 @@ public class NaiveBayesTest {
         return new Scanner(new File(path)).useDelimiter("\\Z").next();
     }
 }
+
