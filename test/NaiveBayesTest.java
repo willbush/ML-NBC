@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 import static org.junit.Assert.assertEquals;
 
-public class NaiveBayesClassifierTest {
+public class NaiveBayesTest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before
@@ -44,10 +44,10 @@ public class NaiveBayesClassifierTest {
         DataSet trainSet = DataSet.fromFile(trainPath);
         DataSet testSet = DataSet.fromFile(testPath);
 
-        Function<List<Boolean>, Boolean> classifier = NaiveBayesClassifier.train(trainSet);
+        Function<List<Boolean>, Boolean> classifier = NaiveBayes.train(trainSet);
 
-        NaiveBayesClassifier.printAccuracy(classifier, trainSet, "training");
-        NaiveBayesClassifier.printAccuracy(classifier, testSet, "test");
+        NaiveBayes.printAccuracy(classifier, trainSet, "training");
+        NaiveBayes.printAccuracy(classifier, testSet, "test");
         final String expectedOutput = readFile(outPath);
 
         assertEquals(expectedOutput, out.toString());

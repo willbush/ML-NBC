@@ -16,10 +16,10 @@ public class Main {
         try {
             final DataSet trainSet = DataSet.fromFile(args[0]);
             final DataSet testSet = DataSet.fromFile(args[1]);
-            Function<List<Boolean>, Boolean> classifier = NaiveBayesClassifier.train(trainSet);
+            Function<List<Boolean>, Boolean> classifier = NaiveBayes.train(trainSet);
 
-            NaiveBayesClassifier.printAccuracy(classifier, trainSet, "training");
-            NaiveBayesClassifier.printAccuracy(classifier, testSet, "test");
+            NaiveBayes.printAccuracy(classifier, trainSet, "training");
+            NaiveBayes.printAccuracy(classifier, testSet, "test");
         } catch (Exception e) {
             e.printStackTrace();
         }
