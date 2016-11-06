@@ -72,7 +72,7 @@ In the algorithm, we take the log of equation:
 ```
 log(P(A,B,C|Y)P(Y)) = log(P(A|Y)) + log(P(B|Y)) + log(P(C|Y)) log(P(Y))
 
-log(P(A,B,C|~Y)P(~Y)) = log(P(A|~Y)) + log(P(B|~Y)) + log(P(C|~Y) + log(P(~Y))
+log(P(A,B,C|~Y)P(~Y)) = log(P(A|~Y)) + log(P(B|~Y)) + log(P(C|~Y)) + log(P(~Y))
 ```
 This is done because for large number of attributes multiplying a large number of probabilities together can cause underflow and log of both sides of the equation can prevent this because it becomes a sum, and the result is not affected.
 
