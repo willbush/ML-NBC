@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.function.Function;
+
 public class Main {
     private static final String PROGRAM_USAGE = "The program requires exactly 2 arguments:\n" +
             "1st argument: the path to the train data file\n" +
@@ -13,11 +16,10 @@ public class Main {
         try {
             final DataSet trainSet = DataSet.fromFile(args[0]);
             final DataSet testSet = DataSet.fromFile(args[1]);
+            Function<List<Boolean>, Boolean> classifier = NaiveBayesClassifier.train(trainSet);
 
-            System.out.println("Test set:");
-            System.out.println(testSet.toString());
-            System.out.println("Train set:");
-            System.out.println(trainSet.toString());
+            NaiveBayesClassifier.printAccuracy(classifier, trainSet, "training");
+            NaiveBayesClassifier.printAccuracy(classifier, testSet, "test");
         } catch (Exception e) {
             e.printStackTrace();
         }
